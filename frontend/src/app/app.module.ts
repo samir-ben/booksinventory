@@ -7,6 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ListBooksComponent } from './list-books/list-books.component';
 import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
+import { PagenofoundComponent } from './pagenofound/pagenofound.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { EditComponent } from './edit/edit.component';
     NavbarComponent,
     ListBooksComponent,
     CreateComponent,
-    EditComponent
+    EditComponent,
+    PagenofoundComponent
   ],
   imports: [
     BrowserModule,
