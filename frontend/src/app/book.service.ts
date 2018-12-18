@@ -10,36 +10,36 @@ export class BookService {
 
   constructor(private http: HttpClient) { }
 
-  getIssues() {
+  getBooks() {
     return this.http.get(`${this.url}/books`);
   }
 
-  getIssueById(id) {
+  getBookById(id) {
     return this.http.get(`${this.url}/books/${id}`);
   }
 
-  addIssue(title, author, description, price) {
-    const issue = {
+  addBook(title, author, description, price) {
+    const book = {
       title: title,
       author: author,
       description: description,
       price: price
     };
-    return this.http.post(`${this.url}/books/add`, issue);
+    return this.http.post(`${this.url}/books/add`, book);
   }
 
-  updateIssue(id, title, author, description, price, discount) {
-    const issue = {
+  updateBook(id, title, author, description, price, discount) {
+    const book = {
       title: title,
       author: author,
       description: description,
       price: price,
       discount: discount
     };
-    return this.http.post(`${this.url}/books/update/${id}`, issue);
+    return this.http.post(`${this.url}/books/update/${id}`, book);
   }
 
-  deleteIssue(id) {
+  deleteBook(id) {
     return this.http.get(`${this.url}/books/delete/${id}`);
   }
 }

@@ -9,6 +9,7 @@ import { ListBooksComponent } from './list-books/list-books.component';
 import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
 import { PagenofoundComponent } from './pagenofound/pagenofound.component';
+import { BookService } from './book.service';
 
 @NgModule({
   declarations: [
@@ -19,12 +20,8 @@ import { PagenofoundComponent } from './pagenofound/pagenofound.component';
     EditComponent,
     PagenofoundComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule
-  ],
-  providers: [],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
+  providers: [BookService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
