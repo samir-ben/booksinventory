@@ -1,3 +1,28 @@
-<p>
-  list-books works!
-</p>
+<table class="container highlight">
+  <thead>
+    <tr>
+        <th>Nom</th>
+        <th>Auteur</th>
+        <th>Description</th>
+        <th>Prix</th>
+        <th>Réduction</th>
+        <th>Actions</th>
+
+
+    </tr>
+  </thead>
+
+  <tbody *ngFor="let book of books">
+    <tr>
+      <td>{{book.title}}</td>
+      <td>{{book.author}}</td>
+      <td>{{book.description}}</td>
+      <td>{{book.price}}</td>
+      <td>{{book.discount}}</td>
+      <td>
+          <a class="waves-effect waves-light btn-small" (click)="editBook(book._id)">Modifier</a>  
+          <a class="waves-effect waves-light btn-small">Supprimer</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -8,7 +8,7 @@ import { PagenofoundComponent } from './pagenofound/pagenofound.component';
 const routes: Routes = [
   { path: '', component: ListBooksComponent },
   { path: 'create', component: CreateComponent },
-  { path: 'edit', component: EditComponent },
+  { path: 'edit/:id', component: EditComponent },
   { path: '**', component: PagenofoundComponent }
 ];
 
