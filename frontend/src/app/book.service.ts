@@ -18,12 +18,13 @@ export class BookService {
     return this.http.get(`${this.url}/books/${id}`);
   }
 
-  addBook(title, author, description, price) {
+  addBook(title, author, description, price, discount) {
     const book = {
       title: title,
       author: author,
       description: description,
-      price: price
+      price: price,
+      discount: discount
     };
     return this.http.post(`${this.url}/books/add`, book);
   }
