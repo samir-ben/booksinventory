@@ -1,3 +1,33 @@
-<p>
-  edit works!
-</p>
+<div class="row">
+  <form [formGroup]="updateForm" class="col s12">
+    <div class="row">
+      <div class="input-field col s6">
+        <input placeholder="Placeholder" id="name" type="text" class="validate" formControlName="title" #title>
+        <label for="name">Nom</label>
+      </div>
+      <div class="input-field col s6">
+        <input id="author" type="text" class="validate" formControlName="author" #author>
+        <label for="author">Auteur</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea id="description" class="materialize-textarea" formControlName="description" #description></textarea>
+        <label for="description">Description</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <input placeholder="Placeholder" id="price" type="number" class="validate" formControlName="price" #price>
+        <label for="price">Prix</label>
+      </div>
+      <div class="input-field col s6">
+        <input id="discount" type="number" class="validate" formControlName="discount" #discount>
+        <label for="discount">Réduction</label>
+      </div>
+    </div>
+    <button class="btn" routerLink="/">Retour</button>&nbsp;
+    <button class="btn" type="submit" (click)="updateBook(title.value, author.value, description.value, price.value, discount?.value)"
+      [disabled]="updateForm.pristine || updateForm.invalid">Ajouter</button>
+  </form>
+</div>
