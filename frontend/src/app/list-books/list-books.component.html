@@ -25,8 +25,8 @@
         <td>{{book.price}}</td>
         <td>{{book.discount}}</td>
         <td>
-          <a class="waves-effect waves-light btn-small" (click)="editBook(book._id)">Modifier</a>
-          <a class="waves-effect waves-light btn-small" (click)="deleteBook(book._id)">Supprimer</a>
+          <a class="waves-effect waves-light btn-small yellow accent-4" (click)="editBook(book._id)"><i class="material-icons">edit</i></a>
+          <a class="waves-effect waves-light btn-small red darken-1" (click)="deleteBook(book._id)"><i class="material-icons">delete</i></a>
         </td>
       </tr>
     </tbody>
