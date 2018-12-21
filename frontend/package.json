@@ -8,8 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "pre-commit": "npm run commit-msg && npm run lint && npm run commit-msg",
-    "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    "pre-commit": "npm run commitlint && npm run lint && npm run commit-msg",
+    "commitlint": "commitlint -E"
   },
   "private": true,
   "dependencies": {
