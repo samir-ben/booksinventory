@@ -5,4 +5,5 @@ export interface Book {
   description: String;
   price: Number;
   discount: Number;
+  quantity: Number;
 }

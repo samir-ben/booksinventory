@@ -12,12 +12,19 @@ let Book = new Schema({
   description: {
     type: String
   },
-  price: {
+  unitPurchaseHtPrice: {
+    type: String
+  },
+  unitRetailHtPrice: {
     type: String
   },
   discount: {
     type: Number,
     default: 0
+  },
+  quantity: {
+    type: Number,
+    default: 1
   }
 });
 

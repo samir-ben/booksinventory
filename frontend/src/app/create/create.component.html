@@ -25,8 +25,12 @@
               <input id="discount" type="number" class="validate" formControlName="discount" #discount>
               <label for="discount">Réduction</label>
             </div>
+            <div class="input-field col s6">
+              <input id="quantity" type="number" class="validate" formControlName="quantity" #quantity>
+              <label for="quantity">Quantité</label>
+            </div>
           </div>
           <button class="btn" routerLink="/">Retour</button>&nbsp;
-          <button class="btn" type="submit" (click)="addBook(title.value, author.value, description.value, price.value, discount?.value)" [disabled]="createForm.pristine || createForm.invalid" >Ajouter</button>
+          <button class="btn" type="submit" (click)="addBook(title.value, author.value, description.value, price.value, discount?.value, quantity.value)" [disabled]="createForm.pristine || createForm.invalid" >Ajouter</button>
       </form>
     </div>

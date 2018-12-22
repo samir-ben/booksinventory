@@ -18,12 +18,13 @@ export class CreateComponent implements OnInit {
       author: ['', Validators.required],
       description: ['', Validators.required],
       price: ['', Validators.required],
-      discount: 0
+      discount: 0,
+      quantity: 1
     });
   }
 
-  addBook(title, author, description, price, discount) {
-    this.bookService.addBook(title, author, description, price, discount).subscribe(() => {
+  addBook(title, author, description, price, discount, quantity) {
+    this.bookService.addBook(title, author, description, price, discount, quantity).subscribe(() => {
       this.router.navigate(['/']);
     });
   }

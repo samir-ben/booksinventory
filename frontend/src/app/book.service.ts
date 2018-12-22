@@ -5,10 +5,9 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class BookService {
-
   url = 'http://localhost:4000';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getBooks() {
     return this.http.get(`${this.url}/books`);
@@ -18,24 +17,26 @@ export class BookService {
     return this.http.get(`${this.url}/books/${id}`);
   }
 
-  addBook(title, author, description, price, discount) {
+  addBook(title, author, description, price, discount, quantity) {
     const book = {
       title: title,
       author: author,
       description: description,
       price: price,
-      discount: discount
+      discount: discount,
+      quantity: quantity
     };
     return this.http.post(`${this.url}/books/add`, book);
   }
 
-  updateBook(id, title, author, description, price, discount) {
+  updateBook(id, title, author, description, price, discount, quantity) {
     const book = {
       title: title,
       author: author,
       description: description,
       price: price,
-      discount: discount
+      discount: discount,
+      quantity
     };
     return this.http.post(`${this.url}/books/update/${id}`, book);
   }
