@@ -3,7 +3,10 @@ export interface Book {
   title: String;
   author: String;
   description: String;
-  price: Number;
+  unitPurchaseHtPrice: String;
+  unitRetailHtPrice: String;
   discount: Number;
   quantity: Number;
+  category: String;
+  condition: String;
 }

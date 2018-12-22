@@ -17,26 +17,32 @@ export class BookService {
     return this.http.get(`${this.url}/books/${id}`);
   }
 
-  addBook(title, author, description, price, discount, quantity) {
+  addBook(title, author, description, unitPurchaseHtPrice, unitRetailHtPrice, discount, quantity, category, condition) {
     const book = {
       title: title,
       author: author,
       description: description,
-      price: price,
+      unitPurchaseHtPrice: unitPurchaseHtPrice,
+      unitRetailHtPrice: unitRetailHtPrice,
       discount: discount,
-      quantity: quantity
+      quantity: quantity,
+      category: category,
+      condition: condition,
     };
     return this.http.post(`${this.url}/books/add`, book);
   }
 
-  updateBook(id, title, author, description, price, discount, quantity) {
+  updateBook(id, title, author, description, unitPurchaseHtPrice, unitRetailHtPrice, discount, quantity, category, condition) {
     const book = {
       title: title,
       author: author,
       description: description,
-      price: price,
+      unitPurchaseHtPrice: unitPurchaseHtPrice,
+      unitRetailHtPrice: unitRetailHtPrice,
       discount: discount,
-      quantity
+      quantity: quantity,
+      category: category,
+      condition: condition
     };
     return this.http.post(`${this.url}/books/update/${id}`, book);
   }

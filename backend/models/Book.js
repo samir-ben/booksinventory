@@ -25,7 +25,13 @@ let Book = new Schema({
   quantity: {
     type: Number,
     default: 1
-  }
+  },
+  category: {
+    type: String
+  },
+  condition: {
+    type: String
+  },
 });
 
 export default mongoose.model("Book", Book);

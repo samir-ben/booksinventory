@@ -1,33 +1,61 @@
 <div class="row">
-  <form [formGroup]="updateForm" class="col s12">
-    <div class="row">
-      <div class="input-field col s6">
-        <input placeholder="Placeholder" id="name" type="text" class="validate" formControlName="title" #title>
-        <label for="name">Nom</label>
+    <form [formGroup]="updateForm" class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Placeholder" id="name" type="text" class="validate" formControlName="title" #title>
+          <label for="name">Nom</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="author" type="text" class="validate" formControlName="author" #author>
+          <label for="author">Auteur</label>
+        </div>
       </div>
-      <div class="input-field col s6">
-        <input id="author" type="text" class="validate" formControlName="author" #author>
-        <label for="author">Auteur</label>
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="description" class="materialize-textarea" formControlName="description" #description></textarea>
+          <label for="description">Description</label>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <textarea id="description" class="materialize-textarea" formControlName="description" #description></textarea>
-        <label for="description">Description</label>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="discount" type="number" class="validate" formControlName="discount" #discount>
+          <label for="discount">Réduction</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="quantity" type="number" class="validate" formControlName="quantity" #quantity>
+          <label for="quantity">Quantité</label>
+        </div>
+        <div class="input-field col s3">
+          <input id="unitPurchaseHtPrice" type="number" class="validate" formControlName="unitPurchaseHtPrice"
+            #unitPurchaseHtPrice>
+          <label for="unitPurchaseHtPrice">Prix achat HT unitaire</label>
+        </div>
+        <div class="input-field col s3">
+          <input id="unitRetailHtPrice" type="number" class="validate" formControlName="unitRetailHtPrice"
+            #unitRetailHtPrice>
+          <label for="unitRetailHtPrice">Prix Vente unitaire HT</label>
+        </div>
+        <div class="input-field col s3">
+          <select formControlName="category" #category>
+            <option value="Littérature" selected>Littérature</option>
+            <option value="Histoire">Histoire</option>
+            <option value="Philosophie" selected>Philosophie</option>
+            <option value="Religion & spiritualité">Religion & spiritualité</option>
+            <option value="Poésie" selected>Poésie</option>
+            <option value="Politique">Politique</option>
+          </select>
+          <label>Catégorie</label>
+        </div>
+        <div class="input-field col s3">
+          <select formControlName="condition" #condition>
+            <option value="Neuf" selected>Neuf</option>
+            <option value="Occasion">Occasion</option>
+          </select>
+          <label>Etat</label>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s6">
-        <input placeholder="Placeholder" id="price" type="number" min="0" class="validate" formControlName="price" #price>
-        <label for="price">Prix</label>
-      </div>
-      <div class="input-field col s6">
-        <input id="discount" type="number" class="validate" formControlName="discount" #discount>
-        <label for="discount">Réduction</label>
-      </div>
-    </div>
-    <button class="btn" routerLink="/">Retour</button>&nbsp;
-    <button class="btn" type="submit" (click)="updateBook(title.value, author.value, description.value, price.value, discount?.value)"
-      [disabled]="updateForm.pristine || updateForm.invalid">Ajouter</button>
-  </form>
-</div>
+      <button class="btn" routerLink="/">Retour</button>&nbsp;
+      <button class="btn" type="submit" (click)="updateBook(title.value, author.value, description.value, unitPurchaseHtPrice.value , unitRetailHtPrice.value, discount?.value, quantity.value, category.value, condition.value)"
+        [disabled]="updateForm.pristine || updateForm.invalid">Ajouter</button>
+    </form>
+  </div>

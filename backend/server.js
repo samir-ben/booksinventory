@@ -56,9 +56,12 @@ router.route('/books/update/:id').post((req, res) => {
             book.title = req.body.title;
             book.author = req.body.author;
             book.description = req.body.description;
-            book.price = req.body.price;
+            book.unitPurchaseHtPrice = req.body.unitPurchaseHtPrice;
+            book.unitRetailHtPrice = req.body.unitRetailHtPrice;
             book.discount = req.body.discount;
             book.quantity = req.body.quantity;
+            book.category = req.body.category;
+            book.condition = req.body.condition;
 
             book.save().then(book => {
                 res.json('Update done');

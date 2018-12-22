@@ -39,5 +39,16 @@ export class ListBooksComponent implements OnInit {
       this.fetchBooks();
     });
   }
+  getRetailPriceWithTaxes(value) {
+    return value * 1.2;
+  }
+
+  getStorageCost(value1, value2) {
+    return value1 * value2;
+  }
+
+  getPriceWithDiscount(value1, value2) {
+    return value1 + (value1 * value2 / 100) ;
+  }
 
 }

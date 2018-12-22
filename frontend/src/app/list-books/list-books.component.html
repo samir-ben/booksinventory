@@ -8,9 +8,15 @@
       <tr>
         <th>Nom</th>
         <th>Auteur</th>
-        <th>Description</th>
-        <th>Prix</th>
-        <th>Réduction</th>
+        <th>Prix achat HT unitaire</th>
+        <th>Prix vente HT unitaire</th>
+        <th>Prix vente TTC unitaire</th>
+        <th>Coût total stock</th>
+        <th>Réduction (%)</th>
+        <th>Prix avec réduction</th>
+        <th>Quantité</th>
+        <th>Catégorie</th>
+        <th>Etat</th>
         <th>Actions</th>
   
   
@@ -21,9 +27,15 @@
       <tr>
         <td>{{book.title}}</td>
         <td>{{book.author}}</td>
-        <td>{{book.description}}</td>
-        <td>{{book.price}}</td>
+        <td>{{book.unitPurchaseHtPrice | number}}</td>
+        <td>{{book.unitRetailHtPrice | number}}</td>
+        <td>{{getRetailPriceWithTaxes(book.unitRetailHtPrice)| number}}</td>
+        <td>{{getStorageCost(book.unitPurchaseHtPrice, book.quantity)| number}}</td>
         <td>{{book.discount}}</td>
+        <td>{{getPriceWithDiscount(getRetailPriceWithTaxes(book.unitRetailHtPrice), book.discount)| number}}</td>
+        <td>{{book.quantity}}</td>
+        <td>{{book.category}}</td>
+        <td>{{book.condition}}</td>
         <td>
           <a class="waves-effect waves-light btn-small yellow accent-4" (click)="editBook(book._id)"><i class="material-icons">edit</i></a>
           <a class="waves-effect waves-light btn-small red darken-1" (click)="deleteBook(book._id)"><i class="material-icons">delete</i></a>

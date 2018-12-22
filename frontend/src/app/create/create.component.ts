@@ -9,26 +9,53 @@ import { BookService } from '../book.service';
   styleUrls: ['./create.component.css']
 })
 export class CreateComponent implements OnInit {
-
   createForm: FormGroup;
 
-  constructor(private bookService: BookService, private fb: FormBuilder, private router: Router) {
+  constructor(
+    private bookService: BookService,
+    private fb: FormBuilder,
+    private router: Router
+  ) {
     this.createForm = this.fb.group({
       title: ['', Validators.required],
       author: ['', Validators.required],
       description: ['', Validators.required],
-      price: ['', Validators.required],
+      unitPurchaseHtPrice: ['', Validators.required],
+      unitRetailHtPrice: ['', Validators.required],
       discount: 0,
-      quantity: 1
+      quantity: ['', Validators.required],
+      category: ['', Validators.required],
+      condition: ['Neuf', Validators.required]
     });
   }
 
-  addBook(title, author, description, price, discount, quantity) {
-    this.bookService.addBook(title, author, description, price, discount, quantity).subscribe(() => {
-      this.router.navigate(['/']);
-    });
+  addBook(
+    title,
+    author,
+    description,
+    unitPurchaseHtPrice,
+    unitRetailHtPrice,
+    discount,
+    quantity,
+    category,
+    condition
+  ) {
+    this.bookService
+      .addBook(
+        title,
+        author,
+        description,
+        unitPurchaseHtPrice,
+        unitRetailHtPrice,
+        discount,
+        quantity,
+        category,
+        condition,
+      )
+      .subscribe(() => {
+        this.router.navigate(['/']);
+      });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 }
