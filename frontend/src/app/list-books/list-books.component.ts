@@ -48,7 +48,7 @@ export class ListBooksComponent implements OnInit {
   }
 
   getPriceWithDiscount(value1, value2) {
-    return value1 + (value1 * value2 / 100) ;
+    return value1 - (value1 * value2 / 100) ;
   }
 
 }
