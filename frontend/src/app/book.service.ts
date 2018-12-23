@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Book } from './book.model';
+import { Observable } from 'rxjs';
+import { tap, map } from 'rxjs/operators';
+import { BookType } from './book-type.model';
 
 @Injectable({
   providedIn: 'root'
@@ -49,6 +53,18 @@ export class BookService {
 
   deleteBook(id) {
     return this.http.get(`${this.url}/books/delete/${id}`);
+  }
+  search(term: string): Observable<Book[]> {
+    console.log('search');
+    return this.http
+      .get<BookType>(`${this.url}/books`)
+      .pipe(
+        map(res => res.books.filter(
+          evt => evt.title.toLowerCase().indexOf(term) > -1 || evt.description.toLowerCase().indexOf(term) > -1 )
+          ),
+        tap(eventFiltered => console.log('Event filtered', eventFiltered))
+      )
+      ;
   }
 }
 

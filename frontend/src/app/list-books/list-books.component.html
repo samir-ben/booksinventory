@@ -1,3 +1,7 @@
+<form class="container">
+      <input type="text" placeholder="Recherche..." [formControl]="searchTerm">
+</form>
+
 <div class="container">
   <div class="center-align">
     <a class="btn-floating btn-small waves-effect waves-light red" routerLink="/create"><i class="material-icons">add</i></a>
@@ -43,4 +47,14 @@
       </tr>
     </tbody>
   </table>
+</div>
+
+
+<div *ngIf="result.length > 0">
+  <div *ngFor="let res of result" class="card-event">
+          <p>{{res.title}}</p>
+
+          <p>
+              {{res.description}}
+          </p>
 </div>
