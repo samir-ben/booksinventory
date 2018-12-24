@@ -59,7 +59,11 @@ export class BookService {
       .get<Book[]>(`${this.url}/books`)
       .pipe(
         map(res => res.filter(
-          evt => evt.title.toLowerCase().indexOf(term) > -1 || evt.description.toLowerCase().indexOf(term) > -1 )
+          evt => evt.title.toLowerCase().indexOf(term) > -1 ||
+          evt.author.toLowerCase().indexOf(term) > -1 ||
+          evt.description.toLowerCase().indexOf(term) > -1 ||
+          evt.condition.toLowerCase().indexOf(term) > -1 ||
+          evt.category.toLowerCase().indexOf(term) > -1 )
           ),
         tap(eventFiltered => console.log('Event filtered', eventFiltered))
       )

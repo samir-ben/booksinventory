@@ -1,5 +1,5 @@
 <form class="container">
-      <input type="text" placeholder="Recherche..." [formControl]="searchTerm">
+      <input type="text" placeholder="Titre du livre, nom de l'auteur, catégorie..." [formControl]="searchTerm">
 </form>
 
 <div class="container">
@@ -28,7 +28,7 @@
     </thead>
   
     <tbody *ngFor="let book of books">
-      <tr>
+      <tr *ngIf="result.length == ''">
         <td>{{book.title}}</td>
         <td>{{book.author}}</td>
         <td>{{book.unitPurchaseHtPrice | number}}</td>
@@ -46,15 +46,28 @@
         </td>
       </tr>
     </tbody>
+    
+        <tbody *ngFor="let res of result">
+            <tr *ngIf="result.length !== undifined">
+                <td>{{res.title}}</td>
+                <td>{{res.author}}</td>
+                <td>{{res.unitPurchaseHtPrice | number}}</td>
+                <td>{{res.unitRetailHtPrice | number}}</td>
+                <td>{{getRetailPriceWithTaxes(res.unitRetailHtPrice)| number}}</td>
+                <td>{{getStorageCost(res.unitPurchaseHtPrice, res.quantity)| number}}</td>
+                <td>{{res.discount}}</td>
+                <td>{{getPriceWithDiscount(getRetailPriceWithTaxes(res.unitRetailHtPrice), res.discount)| number}}</td>
+                <td>{{res.quantity}}</td>
+                <td>{{res.category}}</td>
+                <td>{{res.condition}}</td>
+                <td>
+                    <a class="waves-effect waves-light btn-small yellow accent-4" (click)="editBook(res._id)"><i class="material-icons">edit</i></a>
+                    <a class="waves-effect waves-light btn-small red darken-1" (click)="deleteBook(res._id)"><i class="material-icons">delete</i></a>
+                  </td>
+           </tr>
+        </tbody>
+     
   </table>
 </div>
 
 
-<div *ngIf="result.length > 0">
-  <div *ngFor="let res of result" class="card-event">
-          <p>{{res.title}}</p>
-
-          <p>
-              {{res.description}}
-          </p>
-</div>

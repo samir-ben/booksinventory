@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { BookService } from '../book.service';
 import { Book } from '../book.model';
@@ -12,7 +12,7 @@ import { debounceTime, tap, switchMap} from 'rxjs/operators';
   styleUrls: ['./list-books.component.css']
 })
 export class ListBooksComponent implements OnInit {
-
+ 
   books: Book[];
   searchTerm = new FormControl();
   searchTerms$: Observable<string> = this.searchTerm.valueChanges;
@@ -48,6 +48,8 @@ export class ListBooksComponent implements OnInit {
   deleteBook(id) {
     this.bookService.deleteBook(id).subscribe(() => {
       this.fetchBooks();
+      this.result = [];
+      this.searchTerm.setValue('');
     });
   }
   getRetailPriceWithTaxes(value) {
