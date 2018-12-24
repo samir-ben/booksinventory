@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { BookService } from '../book.service';
-
 import { Book } from '../book.model';
-
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { debounceTime, tap, switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-list-books',
@@ -11,13 +12,23 @@ import { Book } from '../book.model';
   styleUrls: ['./list-books.component.css']
 })
 export class ListBooksComponent implements OnInit {
-
+ 
   books: Book[];
+  searchTerm = new FormControl();
+  searchTerms$: Observable<string> = this.searchTerm.valueChanges;
+  result: Book[] = [];
 
   constructor(private bookService: BookService, private router: Router) { }
 
   ngOnInit() {
     this.fetchBooks();
+    this.searchTerms$
+      .pipe(
+        debounceTime(1000),
+        switchMap(rq => this.bookService.search(rq.toLowerCase())),
+        tap(x => console.log(x))
+      )
+      .subscribe(term => this.result = term);
   }
 
   fetchBooks() {
@@ -37,6 +48,8 @@ export class ListBooksComponent implements OnInit {
   deleteBook(id) {
     this.bookService.deleteBook(id).subscribe(() => {
       this.fetchBooks();
+      this.result = [];
+      this.searchTerm.setValue('');
     });
   }
   getRetailPriceWithTaxes(value) {
