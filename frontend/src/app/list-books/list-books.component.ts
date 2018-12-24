@@ -6,8 +6,6 @@ import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { debounceTime, tap, switchMap} from 'rxjs/operators';
 
-
-
 @Component({
   selector: 'app-list-books',
   templateUrl: './list-books.component.html',
