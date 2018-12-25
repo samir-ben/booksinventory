@@ -11,6 +11,7 @@ import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
 import { PagenofoundComponent } from './pagenofound/pagenofound.component';
 import { BookService } from './book.service';
+import { BookItemComponent } from './book-item/book-item.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { BookService } from './book.service';
     ListBooksComponent,
     CreateComponent,
     EditComponent,
-    PagenofoundComponent
+    PagenofoundComponent,
+    BookItemComponent
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
   providers: [BookService],

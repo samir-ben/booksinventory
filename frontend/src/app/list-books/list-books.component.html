@@ -26,9 +26,8 @@
   
       </tr>
     </thead>
-  
     <tbody *ngFor="let book of books">
-      <tr *ngIf="result.length == ''">
+      <tr class="table-link" routerLink="/book/{{book._id}}" *ngIf="result.length == ''">
         <td>{{book.title}}</td>
         <td>{{book.author}}</td>
         <td>{{book.unitPurchaseHtPrice | number}}</td>
@@ -45,7 +44,9 @@
           <a class="waves-effect waves-light btn-small red darken-1" (click)="deleteBook(book._id)"><i class="material-icons">delete</i></a>
         </td>
       </tr>
+
     </tbody>
+  
     
         <tbody *ngFor="let res of result">
             <tr *ngIf="result.length !== undifined">
