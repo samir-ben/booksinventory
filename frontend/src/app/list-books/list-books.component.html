@@ -49,7 +49,7 @@
   
     
         <tbody *ngFor="let res of result">
-            <tr *ngIf="result.length !== undifined">
+            <tr class="table-link" routerLink="/book/{{res._id}}" *ngIf="result.length !== undifined">
                 <td>{{res.title}}</td>
                 <td>{{res.author}}</td>
                 <td>{{res.unitPurchaseHtPrice | number}}</td>
