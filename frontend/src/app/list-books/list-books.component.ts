@@ -12,7 +12,7 @@ import { debounceTime, tap, switchMap} from 'rxjs/operators';
   styleUrls: ['./list-books.component.css']
 })
 export class ListBooksComponent implements OnInit {
- 
+
   books: Book[];
   searchTerm = new FormControl();
   searchTerms$: Observable<string> = this.searchTerm.valueChanges;
