@@ -1,4 +1,4 @@
-  <div class="row">
+  <!-- <div class="row">
       <form [formGroup]="createForm"  class="col s12">
         <div class="row">
           <div class="input-field col s6">
@@ -55,6 +55,64 @@
           <button class="btn" routerLink="/">Retour</button>&nbsp;
           <button class="btn" type="submit" (click)="addBook(title.value, author.value, description.value, unitPurchaseHtPrice.value , unitRetailHtPrice.value, discount?.value, quantity.value, category.value, condition.value)" [disabled]="createForm.pristine || createForm.invalid" >Ajouter</button>
       </form>
-    </div>
+    </div> -->
 
-    
+<div class="container">
+<form [formGroup]="createForm">
+  <div class="example-container">
+    <div class="row">
+      <mat-form-field class="col s6">
+        <input matInput placeholder="Titre du livre" formControlName="title" #title>
+      </mat-form-field>
+      <mat-form-field class="col s6">
+        <input matInput placeholder="Nom de l'auteur" formControlName="author" #author>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field class="col s12">
+        <textarea matInput placeholder="Description" formControlName="description" #description></textarea>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field class="col s3">
+        <input matInput type="number" min="0" placeholder="Prix Achat unitaire HT" formControlName="unitPurchaseHtPrice" #unitPurchaseHtPrice>
+        <mat-hint>Entrez un nombre</mat-hint>
+      </mat-form-field>
+      <mat-form-field class="col s3">
+        <input matInput type="number" min="0" placeholder="Prix de vente unitaire HT" formControlName="unitRetailHtPrice" #unitRetailHtPrice>
+        <mat-hint>Entrez un nombre</mat-hint>
+      </mat-form-field>
+      <mat-form-field class="col s3">
+        <input matInput type="number" min="1" placeholder="Quantité" formControlName="quantity" #quantity>
+        <mat-hint>Entrez un nombre</mat-hint>
+      </mat-form-field> 
+      <mat-form-field class="col s3">
+        <input matInput type="number" min="0" placeholder="Réduction (%)" formControlName="discount" #discount>
+        <mat-hint>Entrez un nombre</mat-hint>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field class="col s4">
+        <mat-select placeholder="Catégorie" formControlName="category" #category>
+          <mat-option value="Littérature">Littérature</mat-option>
+          <mat-option value="Histoire">Histoire</mat-option>
+          <mat-option value="Philosophie">Philosophie</mat-option>
+          <mat-option value="Religion & spiritualité">Religion & spiritualité</mat-option>
+          <mat-option value="Poésie">Poésie</mat-option>
+          <mat-option value="Politique">Politique</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="col s4">
+        <mat-select placeholder="Etat" formControlName="condition" #condition>
+          <mat-option value="Neuf">Neuf</mat-option>
+          <mat-option value="Occasion">Occasion</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="example-button-row row">
+      <button class="col s2" mat-raised-button routerLink="/">Retour</button> 
+      <button class="col s2" mat-raised-button color="primary" (click)="addBook(title.value, author.value, description.value, unitPurchaseHtPrice.value , unitRetailHtPrice.value, quantity.value, discount?.value, category.value, condition.value)" [disabled]="createForm.pristine || createForm.invalid">Primary</button>
+    </div>
+  </div>
+</form>
+</div>

@@ -22,10 +22,10 @@ export class CreateComponent implements OnInit {
       description: ['', Validators.required],
       unitPurchaseHtPrice: ['', Validators.required],
       unitRetailHtPrice: ['', Validators.required],
-      discount: 0,
       quantity: ['', Validators.required],
+      discount: '',
       category: ['', Validators.required],
-      condition: ['Neuf', Validators.required]
+      condition: ['', Validators.required]
     });
   }
 
@@ -35,8 +35,8 @@ export class CreateComponent implements OnInit {
     description,
     unitPurchaseHtPrice,
     unitRetailHtPrice,
-    discount,
     quantity,
+    discount,
     category,
     condition
   ) {
@@ -47,8 +47,8 @@ export class CreateComponent implements OnInit {
         description,
         unitPurchaseHtPrice,
         unitRetailHtPrice,
-        discount,
         quantity,
+        discount,
         category,
         condition,
       )

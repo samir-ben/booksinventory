@@ -5,8 +5,8 @@ export interface Book {
   description: String;
   unitPurchaseHtPrice: String;
   unitRetailHtPrice: String;
-  discount: Number;
   quantity: Number;
+  discount: Number;
   category: String;
   condition: String;
 }

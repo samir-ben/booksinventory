@@ -18,20 +18,20 @@ let Book = new Schema({
   unitRetailHtPrice: {
     type: String
   },
-  discount: {
-    type: Number,
-    default: 0
-  },
   quantity: {
     type: Number,
     default: 1
+  },
+  discount: {
+    type: Number,
+    default: 0
   },
   category: {
     type: String
   },
   condition: {
     type: String
-  },
+  }
 });
 
 export default mongoose.model("Book", Book);

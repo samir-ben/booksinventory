@@ -14,6 +14,20 @@ export class EditComponent implements OnInit {
   book: any = {};
   id: String;
 
+  categories = [
+    { value: 'Littérature', viewValue: 'Littérature' },
+    { value: 'Histoire', viewValue: 'Histoire' },
+    { value: 'Philosophie', viewValue: 'Philosophie' },
+    { value: 'Religion & spiritualité', viewValue: 'Religion & spiritualité' },
+    { value: 'Poésie', viewValue: 'Poésie' },
+    { value: 'Politique', viewValue: 'Politique' }
+  ];
+
+  conditions = [
+    { value: 'Neuf', viewValue: 'Neuf' },
+    { value: 'Occasion', viewValue: 'Occasion' }
+  ];
+
   constructor(
     private bookService: BookService,
     private fb: FormBuilder,
@@ -26,10 +40,10 @@ export class EditComponent implements OnInit {
       description: ['', Validators.required],
       unitPurchaseHtPrice: ['', Validators.required],
       unitRetailHtPrice: ['', Validators.required],
-      discount: 0,
-      quantity: [1, Validators.required],
-      category: ['', Validators.required],
-      condition: ['Neuf', Validators.required]
+      quantity: ['', Validators.required],
+      discount: '',
+      category: [Validators.required],
+      condition: [Validators.required]
     });
   }
 
@@ -47,8 +61,8 @@ export class EditComponent implements OnInit {
         this.updateForm
           .get('unitRetailHtPrice')
           .setValue(this.book.unitRetailHtPrice);
-        this.updateForm.get('discount').setValue(this.book.discount);
         this.updateForm.get('quantity').setValue(this.book.quantity);
+        this.updateForm.get('discount').setValue(this.book.discount);
         this.updateForm.get('category').setValue(this.book.category);
         this.updateForm.get('condition').setValue(this.book.condition);
       });
@@ -61,8 +75,8 @@ export class EditComponent implements OnInit {
     description,
     unitPurchaseHtPrice,
     unitRetailHtPrice,
-    discount,
     quantity,
+    discount,
     category,
     condition
   ) {
@@ -74,8 +88,8 @@ export class EditComponent implements OnInit {
         description,
         unitPurchaseHtPrice,
         unitRetailHtPrice,
-        discount,
         quantity,
+        discount,
         category,
         condition
       )

@@ -58,8 +58,8 @@ router.route('/books/update/:id').post((req, res) => {
             book.description = req.body.description;
             book.unitPurchaseHtPrice = req.body.unitPurchaseHtPrice;
             book.unitRetailHtPrice = req.body.unitRetailHtPrice;
-            book.discount = req.body.discount;
             book.quantity = req.body.quantity;
+            book.discount = req.body.discount;
             book.category = req.body.category;
             book.condition = req.body.condition;
 

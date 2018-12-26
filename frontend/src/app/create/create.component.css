@@ -1,3 +1,15 @@
-h1 {
-    background: red
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+.example-container > * {
+  width: 100%;
+}
+input:focus {
+  border-bottom: none!important;
+  box-shadow: none!important;
+}
+input {
+  border-bottom: none!important;
+  box-shadow: none!important;
 }
