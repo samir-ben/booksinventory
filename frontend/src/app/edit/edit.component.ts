@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BookService } from '../book.service';
 import * as M from 'materialize-css/dist/js/materialize';
+declare var $: any;
 
 @Component({
   selector: 'app-edit',
@@ -52,6 +53,13 @@ export class EditComponent implements OnInit {
         this.updateForm.get('category').setValue(this.book.category);
         this.updateForm.get('condition').setValue(this.book.condition);
       });
+    });
+    $(document).ready(function() {
+      $('input#input_text, textarea#textarea2').characterCounter();
+      $('select').formSelect();
+      $('.materialboxed').materialbox();
+      $('.collapsible').collapsible();
+      M.updateTextFields();
     });
   }
 

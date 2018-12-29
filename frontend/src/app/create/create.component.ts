@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BookService } from '../book.service';
+import * as M from 'materialize-css/dist/js/materialize';
+declare var $: any;
 
 @Component({
   selector: 'app-create',
@@ -57,5 +59,13 @@ export class CreateComponent implements OnInit {
       });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    $(document).ready(function () {
+      $('input#input_text, textarea#textarea2').characterCounter();
+      $('select').formSelect();
+      $('.materialboxed').materialbox();
+      $('.collapsible').collapsible();
+      M.updateTextFields();
+    });
+  }
 }
