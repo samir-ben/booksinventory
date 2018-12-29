@@ -6,7 +6,7 @@
   <div class="center-align">
     <a class="btn-floating btn-small waves-effect waves-light red" routerLink="/create"><i class="material-icons">add</i></a>
     <a routerLink="/create">Ajouter un article</a>
-  </div>
+  </div><!--
   <table class="highlight">
     <thead>
       <tr>
@@ -69,6 +69,90 @@
         </tbody>
      
   </table>
-</div>
+</div> -->
 
+<div>
+<mat-table [dataSource]="MyDataSource" matSort>
+<!-- For User ID -->
+<ng-container matColumnDef="Titre" >
+  <mat-header-cell *matHeaderCellDef mat-sort-header>Titre</mat-header-cell>
+  <mat-cell *matCellDef="let data">{{data.title}}</mat-cell>
+</ng-container>
+
+<!-- For Title -->
+<ng-container matColumnDef="Auteur">
+  <mat-header-cell *matHeaderCellDef mat-sort-header>Auteur</mat-header-cell>
+  <mat-cell *matCellDef="let data">{{data.author}}</mat-cell>
+</ng-container>
+
+<!-- For Completion Status -->
+<ng-container matColumnDef="PAHT unitaire">
+  <mat-header-cell *matHeaderCellDef mat-sort-header>PAHT unitaire</mat-header-cell>
+  <mat-cell *matCellDef="let data">{{data.unitPurchaseHtPrice}}</mat-cell>
+</ng-container>
+
+<!-- For Completion Status -->
+<ng-container matColumnDef="PVHT unitaire">
+  <mat-header-cell *matHeaderCellDef mat-sort-header>PVHT unitaire</mat-header-cell>
+  <mat-cell *matCellDef="let data">{{data.unitRetailHtPrice}}</mat-cell>
+</ng-container>
+
+<!-- For Completion Status -->
+<ng-container matColumnDef="PVTTC unitaire">
+  <mat-header-cell *matHeaderCellDef mat-sort-header>PVTTC unitaire</mat-header-cell>
+  <mat-cell *matCellDef="let data">{{getRetailPriceWithTaxes(data.unitRetailHtPrice)| number}}</mat-cell>
+</ng-container>
+
+<!-- For Completion Status -->
+<ng-container matColumnDef="Coût stock total">
+  <mat-header-cell *matHeaderCellDef mat-sort-header>Coût stock total</mat-header-cell>
+  <mat-cell *matCellDef="let data">{{getStorageCost(data.unitPurchaseHtPrice, data.quantity)| number}}</mat-cell>
+</ng-container>
+
+<!-- For Completion Status -->
+<ng-container matColumnDef="Réduction (%)">
+  <mat-header-cell *matHeaderCellDef mat-sort-header>Réduction (%)</mat-header-cell>
+  <mat-cell *matCellDef="let data">{{data.discount}}</mat-cell>
+</ng-container>
+
+<!-- For Completion Status -->
+<ng-container matColumnDef="PVTTC après réduction">
+  <mat-header-cell *matHeaderCellDef mat-sort-header>PVTTC après réduction</mat-header-cell>
+  <mat-cell *matCellDef="let data">{{getPriceWithDiscount(getRetailPriceWithTaxes(data.unitRetailHtPrice), data.discount)| number}}</mat-cell>
+</ng-container>
+
+<!-- For Completion Status -->
+<ng-container matColumnDef="Quantité">
+  <mat-header-cell *matHeaderCellDef mat-sort-header>Quantité</mat-header-cell>
+  <mat-cell *matCellDef="let data">{{data.quantity}}</mat-cell>
+</ng-container>
+
+<ng-container matColumnDef="Catégorie">
+  <mat-header-cell *matHeaderCellDef mat-sort-header>Catégorie</mat-header-cell>
+  <mat-cell *matCellDef="let data">{{data.category}}</mat-cell>
+</ng-container>
+
+<ng-container matColumnDef="Etat">
+  <mat-header-cell *matHeaderCellDef mat-sort-header>Etat</mat-header-cell>
+  <mat-cell *matCellDef="let data">{{data.condition}}</mat-cell>
+</ng-container>
+
+<ng-container matColumnDef="Actions">
+  <mat-header-cell *matHeaderCellDef mat-sort-header>Actions</mat-header-cell>
+  <mat-cell *matCellDef="let data">
+    <a class="waves-effect waves-light btn-small yellow accent-4" (click)="editBook(data._id)"><i class="material-icons">edit</i></a>
+    <a class="waves-effect waves-light btn-small red darken-1" (click)="deleteBook(data._id)" routerLink="/"><i class="material-icons">delete</i></a>
+  </mat-cell>
+</ng-container>
+
+
+<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<!-- To paginate between pages with search -->
+<mat-paginator #paginator [length]="bookList && bookList.length" [pageSize]="5" [pageSizeOptions]="[5, 10, 20]">
+</mat-paginator>
+</div>
+<!-- </mat-card> -->
 
