@@ -27,7 +27,7 @@
       </tr>
     </thead>
     <tbody *ngFor="let book of books">
-      <tr class="table-link" routerLink="/book/{{book._id}}" *ngIf="result.length == ''">
+      <tr class="table-link" *ngIf="result.length == ''">
         <td>{{book.title}}</td>
         <td>{{book.author}}</td>
         <td>{{book.unitPurchaseHtPrice | number}}</td>
@@ -42,6 +42,7 @@
         <td>
           <a class="waves-effect waves-light btn-small yellow accent-4" (click)="editBook(book._id)"><i class="material-icons">edit</i></a>
           <a class="waves-effect waves-light btn-small red darken-1" (click)="deleteBook(book._id)"><i class="material-icons">delete</i></a>
+          <a class="waves-effect waves-light btn-small red darken-1" routerLink="/book/{{book._id}}" ><i class="material-icons">search</i></a>
         </td>
       </tr>
 
@@ -49,7 +50,7 @@
   
     
         <tbody *ngFor="let res of result">
-            <tr class="table-link" routerLink="/book/{{res._id}}" *ngIf="result.length !== undifined">
+            <tr class="table-link" *ngIf="result.length !== undifined">
                 <td>{{res.title}}</td>
                 <td>{{res.author}}</td>
                 <td>{{res.unitPurchaseHtPrice | number}}</td>
@@ -64,6 +65,7 @@
                 <td>
                     <a class="waves-effect waves-light btn-small yellow accent-4" (click)="editBook(res._id)"><i class="material-icons">edit</i></a>
                     <a class="waves-effect waves-light btn-small red darken-1" (click)="deleteBook(res._id)"><i class="material-icons">delete</i></a>
+                    <a class="waves-effect waves-light btn-small red darken-1" routerLink="/book/{{res._id}}"><i class="material-icons">search</i></a>
                   </td>
            </tr>
         </tbody>
