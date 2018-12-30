@@ -27,7 +27,7 @@
       </tr>
     </thead>
     <tbody *ngFor="let book of books">
-      <tr class="table-link" *ngIf="result.length == ''">
+      <tr class="table-link" *ngIf="result.length === 0">
         <td>{{book.title}}</td>
         <td>{{book.author}}</td>
         <td>{{book.unitPurchaseHtPrice | number}}</td>
@@ -50,7 +50,7 @@
   
     
         <tbody *ngFor="let res of result">
-            <tr class="table-link" *ngIf="result.length !== undifined">
+            <tr class="table-link" *ngIf="result.length !== undefined">
                 <td>{{res.title}}</td>
                 <td>{{res.author}}</td>
                 <td>{{res.unitPurchaseHtPrice | number}}</td>
