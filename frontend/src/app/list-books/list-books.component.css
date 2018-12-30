@@ -1,3 +1,11 @@
 .table-link {
     cursor: pointer; 
 }
+
+.search-bar {
+    margin-top: 15px;
+}
+
+h1 {
+    font-size: 2em;
+}

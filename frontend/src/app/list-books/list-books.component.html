@@ -1,12 +1,10 @@
-<form class="container">
+<form class="container search-bar">
+      <label>Recherche</label>
       <input type="text" placeholder="Titre du livre, nom de l'auteur, catégorie..." [formControl]="searchTerm">
 </form>
 
 <div class="container">
-  <div class="center-align">
-    <a class="btn-floating btn-small waves-effect waves-light red" routerLink="/create"><i class="material-icons">add</i></a>
-    <a routerLink="/create">Ajouter un article</a>
-  </div>
+  <h1 class="center">Liste des livres en stock</h1>
   <table class="highlight">
     <thead>
       <tr>
