@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BookService } from '../book.service';
+declare var $: any;
 
 
 @Component({
@@ -21,5 +22,8 @@ export class BookItemComponent implements OnInit {
         this.book = res;
         console.log(res);
       });
+    });
+    $(document).ready(function () {
+      $('.collapsible').collapsible();
     });
 }}
