@@ -26,17 +26,17 @@
     </thead>
     <tbody *ngFor="let book of books">
       <tr class="table-link" *ngIf="result.length === 0">
-        <td>{{book.title}}</td>
-        <td>{{book.author}}</td>
-        <td>{{book.unitPurchaseHtPrice | number}}</td>
-        <td>{{book.unitRetailHtPrice | number}}</td>
-        <td>{{getRetailPriceWithTaxes(book.unitRetailHtPrice)| number}}</td>
-        <td>{{getStorageCost(book.unitPurchaseHtPrice, book.quantity)| number}}</td>
-        <td>{{book.discount}}</td>
-        <td>{{getPriceWithDiscount(getRetailPriceWithTaxes(book.unitRetailHtPrice), book.discount)| number}}</td>
-        <td>{{book.quantity}}</td>
-        <td>{{book.category}}</td>
-        <td>{{book.condition}}</td>
+        <td routerLink="/book/{{book._id}}">{{book.title}}</td>
+        <td routerLink="/book/{{book._id}}">{{book.author}}</td>
+        <td routerLink="/book/{{book._id}}">{{book.unitPurchaseHtPrice | number}}</td>
+        <td routerLink="/book/{{book._id}}">{{book.unitRetailHtPrice | number}}</td>
+        <td routerLink="/book/{{book._id}}">{{getRetailPriceWithTaxes(book.unitRetailHtPrice)| number}}</td>
+        <td routerLink="/book/{{book._id}}">{{getStorageCost(book.unitPurchaseHtPrice, book.quantity)| number}}</td>
+        <td routerLink="/book/{{book._id}}">{{book.discount}}</td>
+        <td routerLink="/book/{{book._id}}">{{getPriceWithDiscount(getRetailPriceWithTaxes(book.unitRetailHtPrice), book.discount)| number}}</td>
+        <td routerLink="/book/{{book._id}}">{{book.quantity}}</td>
+        <td routerLink="/book/{{book._id}}">{{book.category}}</td>
+        <td routerLink="/book/{{book._id}}">{{book.condition}}</td>
         <td>
           <a class="waves-effect" routerLink="/book/{{book._id}}"><i class="tiny material-icons">search</i></a>
           <a class="waves-effect" (click)="editBook(book._id)"><i class="tiny material-icons">edit</i></a>
@@ -49,17 +49,17 @@
     
         <tbody *ngFor="let res of result">
             <tr class="table-link" *ngIf="result.length !== undefined">
-                <td>{{res.title}}</td>
-                <td>{{res.author}}</td>
-                <td>{{res.unitPurchaseHtPrice | number}}</td>
-                <td>{{res.unitRetailHtPrice | number}}</td>
-                <td>{{getRetailPriceWithTaxes(res.unitRetailHtPrice)| number}}</td>
-                <td>{{getStorageCost(res.unitPurchaseHtPrice, res.quantity)| number}}</td>
-                <td>{{res.discount}}</td>
-                <td>{{getPriceWithDiscount(getRetailPriceWithTaxes(res.unitRetailHtPrice), res.discount)| number}}</td>
-                <td>{{res.quantity}}</td>
-                <td>{{res.category}}</td>
-                <td>{{res.condition}}</td>
+                <td routerLink="/book/{{res._id}}">{{res.title}}</td>
+                <td routerLink="/book/{{res._id}}">{{res.author}}</td>
+                <td routerLink="/book/{{res._id}}">{{res.unitPurchaseHtPrice | number}}</td>
+                <td routerLink="/book/{{res._id}}">{{res.unitRetailHtPrice | number}}</td>
+                <td routerLink="/book/{{res._id}}">{{getRetailPriceWithTaxes(res.unitRetailHtPrice)| number}}</td>
+                <td routerLink="/book/{{res._id}}">{{getStorageCost(res.unitPurchaseHtPrice, res.quantity)| number}}</td>
+                <td routerLink="/book/{{res._id}}">{{res.discount}}</td>
+                <td routerLink="/book/{{res._id}}">{{getPriceWithDiscount(getRetailPriceWithTaxes(res.unitRetailHtPrice), res.discount)| number}}</td>
+                <td routerLink="/book/{{res._id}}">{{res.quantity}}</td>
+                <td routerLink="/book/{{res._id}}">{{res.category}}</td>
+                <td routerLink="/book/{{res._id}}">{{res.condition}}</td>
                 <td>
                   <a class="waves-effect" routerLink="/book/{{res._id}}"><i class="tiny material-icons">search</i></a>
                   <a class="waves-effect" (click)="editBook(res._id)"><i class="tiny material-icons">edit</i></a>
