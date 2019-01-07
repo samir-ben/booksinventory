@@ -1,5 +1,6 @@
 <div class="row">
-    <form [formGroup]="updateForm" class="col s12">
+    <h5>Modifications</h5>
+    <form [formGroup]="updateForm" class="col s6 offset-s3">
       <div class="row">
         <div class="input-field col s6">
           <input placeholder="Placeholder" id="name" type="text" class="validate" formControlName="title" #title>
@@ -54,8 +55,8 @@
           <label>Etat</label>
         </div>
       </div>
-      <button class="btn" routerLink="/">Retour</button>&nbsp;
-      <button class="btn" type="submit" (click)="updateBook(title.value, author.value, description.value, unitPurchaseHtPrice.value , unitRetailHtPrice.value, discount?.value, quantity.value, category.value, condition.value)"
+      <button class="btn blue lighten-2" routerLink="/">Retour</button>&nbsp;
+      <button class="btn blue lighten-2" type="submit" (click)="updateBook(title.value, author.value, description.value, unitPurchaseHtPrice.value , unitRetailHtPrice.value, discount?.value, quantity.value, category.value, condition.value)"
         [disabled]="updateForm.pristine || updateForm.invalid">Ajouter</button>
     </form>
   </div>

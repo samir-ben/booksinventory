@@ -1,5 +1,6 @@
   <div class="row">
-      <form [formGroup]="createForm"  class="col s12">
+      <h5>Ajouter un livre</h5>
+      <form [formGroup]="createForm"  class="col s6 offset-s3">
         <div class="row">
           <div class="input-field col s6">
             <input placeholder="Placeholder" id="name" type="text" class="validate" formControlName="title" #title>
@@ -52,8 +53,8 @@
               <label>Etat</label>
             </div>
           </div>
-          <button class="btn" routerLink="/">Retour</button>&nbsp;
-          <button class="btn" type="submit" (click)="addBook(title.value, author.value, description.value, unitPurchaseHtPrice.value , unitRetailHtPrice.value, discount?.value, quantity.value, category.value, condition.value)" [disabled]="createForm.pristine || createForm.invalid" >Ajouter</button>
+          <button class="btn blue lighten-2" routerLink="/">Retour</button>&nbsp;
+          <button class="btn blue lighten-2" type="submit" (click)="addBook(title.value, author.value, description.value, unitPurchaseHtPrice.value , unitRetailHtPrice.value, discount?.value, quantity.value, category.value, condition.value)" [disabled]="createForm.pristine || createForm.invalid" >Ajouter</button>
       </form>
     </div>
 
